@@ -57,12 +57,12 @@ function Movies() {
             <div className='flex flex-wrap justify-evenly gap-10'>
                 {movies.map((moviesObj) => {
                         return (
-                            <MovieCard key={moviesObj.title} moviesObj={moviesObj} addToWatchlist={addToWatchlist} 
+                            <MovieCard key={moviesObj.id} moviesObj={moviesObj} addToWatchlist={addToWatchlist} 
                             watchlist={watchlist} 
                             removeFromWatchlist={removeFromWatchlist} />
                         )
                     })
-                }
+                }                npm run dev
             </div>
 
             <Pagination 
