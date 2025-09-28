@@ -11,16 +11,16 @@ function MovieCard({ moviesObj, addToWatchlist, watchlist, removeFromWatchlist }
         return false;
     }
     return (
-        <div className='h-[40vh] w-[250px] bg-cover bg-center rounded-xl hover:scale-110 transition-transform duration-300 flex flex-col' style={{ backgroundImage: `url(${moviesObj.image.original})` }}>
+        <div className='h-[40vh] w-[250px] bg-cover bg-center rounded-xl hover:scale-110 transition-transform duration-300 flex flex-col justify-between' style={{ backgroundImage: `url(${moviesObj.image.original})` }}>
 
-            <div className='flex justify-end bg-blue-800/5 rounded-xl p-2'>
+            <div className='flex justify-end'>
                 {doesExistInWatchlist(moviesObj) ?
-                    <i className="fa-solid fa-xmark" onClick={() => removeFromWatchlist(moviesObj)}></i> :
-                    <i className="fa-solid fa-cart-plus" onClick={() =>
+                    <i className="fa-solid bg-gray-800 rounded-xl m-2 fa-xmark p-2 text-white mix-blend-difference cursor-pointer" onClick={() => removeFromWatchlist(moviesObj)}></i> :
+                    <i className="fa-solid bg-gray-800 rounded-xl m-2 fa-cart-plus p-2 text-white mix-blend-difference cursor-pointer" onClick={() =>
                         addToWatchlist(moviesObj)}></i>}
             </div>
 
-            <div className='text-white w-full text-center text-2xl p-2 font-bold bg-gray-800/50 rounded-xl mt-auto'>
+            <div className='text-white w-full text-center text-xl p-1 font-bold bg-gray-800/50 rounded-xl mt-auto'>
                 {moviesObj.name}
             </div>
 
