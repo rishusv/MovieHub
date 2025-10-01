@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
+import {WatchListContext} from '../context/WatchListContext'
 
 function WatchList() {
-
-  const [watchlist, setWatchlist] = useState([]);
+  const { watchlist,setWatchlist } = useContext(WatchListContext);
   const [searchTerm, setSearchTerm] = useState('');
   const [genreList, setGenreList] = useState(["All Genres", "Action", "Comedy", "Drama"]);
   const [currentGenre, setCurrentGenre] = useState("All Genres");

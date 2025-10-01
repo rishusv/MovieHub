@@ -1,33 +1,16 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import Pagination from './Pagination'
 import MovieCard from './MovieCard';
 import axios from 'axios';
+import {WatchListContext} from '../context/WatchListContext'
 
 function Movies() {
     const [movies, setMovies] = useState([]);
     const [pageNo, setPageNo] = useState(1);
-    const [watchlist, setWatchlist] = useState([]);
+    const data = useContext(WatchListContext);
+    const {addToWatchlist, removeFromWatchlist, watchlist} = data;
 
-    useEffect(() => {
-        const storedWatchlist = localStorage.getItem("movies");
-        if (storedWatchlist) {
-            setWatchlist(JSON.parse(storedWatchlist));
-        }
-    }, []);
-
-    const addToWatchlist = (movie) => {
-        const updatedList = [...watchlist, movie]; //watchList.concat(movie);
-        setWatchlist(updatedList);
-        localStorage.setItem("movies", JSON.stringify(updatedList));
-    }
-
-    const removeFromWatchlist = (movie) => {
-        const updatedList = watchlist.filter(item => item.id !== movie.id);
-        setWatchlist(updatedList);
-        localStorage.setItem("movies", JSON.stringify(updatedList));
-    }
-
-    console.log("Watchlist:", watchlist);
+    
 
     useEffect(() => {
         axios.get(`https://api.tvmaze.com/shows?page=${pageNo}`)
