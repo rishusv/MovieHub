@@ -7,6 +7,8 @@ import { Routes, Route } from 'react-router-dom'
 import WatchListContextProvider from './context/WatchListContext'
 import { Provider } from 'react-redux'
 import store from './redux/store'
+import User from './componenets/User'
+import UserRedux from './componenets/UserRedux'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,13 +16,15 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <NavBar />
+        {/* <NavBar />
         <WatchListContextProvider>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/watchlist' element={<WatchList />} />
           </Routes>
-        </WatchListContextProvider>
+        </WatchListContextProvider> */}
+        {/* <User/> */}
+        <UserRedux/> 
       </Provider>
     </>
 
